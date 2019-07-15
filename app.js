@@ -38,6 +38,7 @@ function uppdatera ()
     for (var i = 0; i < spelare.length ; i++ )
     {
         var temp = spelare[i];
+        //fixa så att det ser bra ut i listan
         li.appendChild(document.createTextNode(JSON.stringify(temp)));
         li.setAttribute("id", "element"+i);
         listan.appendChild(li);
