@@ -19,10 +19,15 @@ function save() {
    $name.value = "";
 
    //uppdatera listan på skärmen
+   uppdatera();
 }
 
 function sort() {
+
+    //ändra ordningen på arrayen
+
     uppdatera();
+    
 }
 
 // "uppdaterar listan på skärmen"-funktionen
@@ -35,12 +40,16 @@ function uppdatera ()
         document.getElementById("spelarna").innerHTML = "";
     }
     var li = document.createElement("li");
+    var linebreak = document.createElement("br");
     for (var i = 0; i < spelare.length ; i++ )
     {
-        var temp = spelare[i];
+        var tempNamn = spelare[i].name;
+        var tempInit = spelare[i].init;
+        console.log(tempInit+" "+tempNamn);
         //fixa så att det ser bra ut i listan
-        li.appendChild(document.createTextNode(JSON.stringify(temp)));
+        li.appendChild(document.createTextNode("Name: " + tempNamn + " Initiative: " + tempInit));
         li.setAttribute("id", "element"+i);
+        li.appendChild(linebreak);
         listan.appendChild(li);
     }
 }
