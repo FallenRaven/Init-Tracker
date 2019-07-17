@@ -6,14 +6,20 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+    <!-- <form onsubmit="event.prevent(); save();"> -->
+    <!-- <form onsubmit="submit(event);"> -->
+    <form>
+
         <input id="name" type="text" name="Name"><br>
 
         <input id="initiative" type="number" name="Initiative"> <br>
 
+        <!-- <input type="submit" value="Save" name="Enter"> <br> -->
         <input type="button" onclick="save()" value="Save" name="Enter"> <br>
 
         <input type="button" onclick="sort()" value="Sort" name="Sort">
 
+    </form>
         <ul id="spelarna">
 
         </ul>
