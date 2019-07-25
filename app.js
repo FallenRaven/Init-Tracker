@@ -31,6 +31,11 @@ function save() {
    uppdatera();
 }
 
+function onSubmit() {
+    save();
+    return false;
+}
+
 function sort() {
 
     //ändra ordningen på arrayen
@@ -51,24 +56,34 @@ function uppdatera ()
     {
         document.getElementById("spelarna").innerHTML = "";
     }
-    // var li = document.createElement("li");
-    // var linebreak = document.createElement("br");
-    // for (var i = 0; i < spelare.length ; i++ )
-    // {
-    //     var tempNamn = spelare[i].name;
-    //     var tempInit = spelare[i].init;
-    //     console.log(tempInit+" "+tempNamn);
-    //     //fixa så att det ser bra ut i listan
-    //     li.appendChild(document.createTextNode("Name: " + tempNamn + " Initiative: " + tempInit));
-    
+
+    //skriver ut listan
     for (var i = 0; i < spelare.length ; i++ )
     {
         var li = document.createElement("li");
         var temp = spelare[i];
-        //fixa så att det ser bra ut i listan
+        const mittI = i;
         li.appendChild(document.createTextNode(`Name: ${temp.name}  Initiative: ${temp.init}`));
+
+        // radera knapp
+        var btnRadera = document.createElement("button");
+        btnRadera.innerText = "Radera";
+        btnRadera.addEventListener("click", function () {
+            spelare.splice(mittI,1);
+            uppdatera();
+        });
+        li.appendChild(btnRadera);
+
+        // redigera knapp
+        var btnEdit = document.createElement("button");
+        btnEdit.innerText = "Edit";
+        btnEdit.addEventListener("click", function () {
+            
+            uppdatera();
+        });
+        li.appendChild(btnEdit);
+
         li.setAttribute("id", "element"+i);
-        // li.appendChild(linebreak);
         listan.appendChild(li);
     }
 }

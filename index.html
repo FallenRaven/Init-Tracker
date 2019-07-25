@@ -6,16 +6,13 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-    <!-- <form onsubmit="event.prevent(); save();"> -->
-    <!-- <form onsubmit="submit(event);"> -->
-    <form onsubmit="save();return false">
+    <form onsubmit="return onSubmit();">
 
-        <input id="name" type="text" name="Name"><br>
+        <input id="name" type="text" name="Name" required><br>
 
-        <input id="initiative" type="number" name="Initiative"> <br>
+        <input id="initiative" type="number" name="Initiative" required> <br>
 
         <input type="submit" value="Save" name="Enter"> <br>
-        <!-- <input type="button" onclick="save()" value="Save" name="Enter"> <br> -->
 
         <input type="button" onclick="sort()" value="Sort" name="Sort">
 
@@ -23,6 +20,16 @@
         <ul id="spelarna">
 
         </ul>
+
+        <template id="spelarElement">
+            <li>
+                <span></span> <!-- spelarens namn -->
+                <span>: </span>
+                <span></span> <!-- inititative -->
+                <button>Radera</button>
+                <button>Editera</button>
+            </li>
+        </template>
 
         <script src="app.js"></script>
     </body>
