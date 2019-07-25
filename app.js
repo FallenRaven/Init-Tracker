@@ -35,9 +35,8 @@ function sort() {
 
     //ändra ordningen på arrayen
     spelare.sort(function (a, b) {
-        return a.init - b.init;
+        return b.init - a.init;
     })
-    spelare.reverse();
     uppdatera();
     
 }
